@@ -1,13 +1,10 @@
 * {
-  background-color: #E9B44C;
+  /*background-color: #E9B44C;*/
   color: #1C110A;
-
 }
 
 .content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
 }
 
 .intro {
@@ -22,4 +19,14 @@ button {
   width: 100px;
   height: 45px;
   background-color: #50A2A7;
+}
+
+.question {
+  text-align: left;
+  padding: 25%
+}
+
+.questionTitle {
+  font-size: 25px;
+  margin-bottom: 10px;
 }

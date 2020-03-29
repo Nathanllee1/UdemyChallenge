@@ -1,5 +1,5 @@
-from flask import Flask, render_template
-
+from flask import Flask, render_template, jsonify
+import json
 app = Flask(__name__, static_folder="build/static", template_folder="build")
 
 @app.route('/')
@@ -22,15 +22,14 @@ def questions():
             'question' : "Does Nathan prefer React or Angular?",
             'answers' : ['React', 'Angular']
         },
-
     ]
 
-    return (questionList)
+    return jsonify(questionList)
 
 @app.route('/answers')
 def answers():
     answerKey = [0, 2, 0]
-    return (answerKey)
+    return jsonify(answerKey)
 
 
 if __name__ == '__main__':
