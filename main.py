@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
 import json
 app = Flask(__name__, static_folder="build/static", template_folder="build")
 
@@ -28,8 +28,18 @@ def questions():
 
 @app.route('/answers')
 def answers():
+    enteredAnswers = request.get_json()
     answerKey = [0, 2, 0]
-    return jsonify(answerKey)
+
+    answerFormat = []
+
+    i = 0
+    while i < len(enteredAnswers):
+        if enteredAnswers[i] != answerKey[i]:
+            returned.append({enteredAnswers[i]: {answerKey[i]}})
+        i += 1
+
+    return jsonify(retruned)
 
 
 if __name__ == '__main__':

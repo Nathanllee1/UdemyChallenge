@@ -3,7 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 //this.setState({questions:response})
 
+
+
 import Questions from './questions'
+import Question from './question'
 
 var questionList = [
     {
@@ -24,10 +27,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions : [],
+      questions : questionList,
       questionCount: 0,
-      currentScreen : ''
+      currentScreen : 'Welcome',
+      answers: [],
+      answerObject: []
     }
+
   }
 
   componentDidMount() {
@@ -37,15 +43,26 @@ class App extends React.Component {
           console.log(data)
         })
       })
-      /*
       .catch((error) => {
-        alert("Couldn't fetch data")
+        console.log("Couldn't fetch data")
       })
-      */
+
   }
 
-  onSubmit = (e) = {
+  onQuestionSubmit = (e) => {
+    e.preventDefault()
+    console.log(this.state.questions)
+    if (this.state.questionCount < this.state.questions.length - 1) {
+      this.setState({questionCount : this.state.questionCount += 1})
+      console.log(e.target.value)
+    } else {
+      this.setState({currentScreen : "Results"})
+    }
+  }
 
+  beginQuiz = (e) => {
+    console.log('beginning quiz')
+    this.setState({currentScreen : 'Questions'})
   }
 
   render() {
@@ -55,14 +72,20 @@ class App extends React.Component {
           <div className="intro">
             <h1>Welcome Udemy!</h1>
             <h2>Here's a quiz about me, Nathan Lee</h2>
-            <button>Begin Quiz</button>
+            <button type="button" class="btn btn-primary" onClick={this.beginQuiz}>Begin Quiz</button>
 
           </div>
         </div>
 
       );
     } else if (this.state.currentScreen == 'Questions') {
-      <Questions questionList={questionList} questionNumber={this.state.questionCount} />
+      return (
+        <Questions questionList={questionList} questionNumber={this.state.questionCount} onSubmit={this.onQuestionSubmit} />
+      )
+    } else if (this.state.currentScreen == 'Results') {
+      return (
+        <h1>Results</h1>
+      )
     }
 
   }

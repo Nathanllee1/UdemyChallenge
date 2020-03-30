@@ -4,7 +4,7 @@
 }
 
 .content {
-
+  padding: 25%
 }
 
 .intro {
@@ -15,18 +15,27 @@ h1 {
 
 }
 
-button {
-  width: 100px;
-  height: 45px;
-  background-color: #50A2A7;
+
+.questionBlock {
+  display: 'flex',run-in;
+  align-items: 'center';
+  justify-content: 'center';
+  width: 100%;
+  height: 100%
+
 }
 
 .question {
   text-align: left;
-  padding: 25%
+  padding: 25%;
+  height: 100%
 }
 
 .questionTitle {
   font-size: 25px;
   margin-bottom: 10px;
+}
+
+.label {
+  margin-left: 5px;
 }
