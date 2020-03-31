@@ -71,7 +71,11 @@ class App extends React.Component {
           </div>
           <form onSubmit={this.onQuestionSubmit} onChange={this.onQuestionChange}>
             {this.state.questions.map((question, index) => (
+<<<<<<< HEAD
               <Question key={index} question={question} questionNumber={index} onSubmit={this.onQuestionSubmit} lastQuestion={this.state.questions.length}/>
+=======
+              <Question question={question} questionNumber={index} onSubmit={this.onQuestionSubmit} lastQuestion={this.state.questions.length}/>
+>>>>>>> 10c555c3664b888935a08d127041699b3578e3e9
             ))}
           </form>
         </div>
