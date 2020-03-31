@@ -15,7 +15,7 @@ def questions():
             'answers' : ['Cal Poly', 'UC San Diego', 'UC Davis']
         },
         {
-            'question' : "What other language does Nathan know other than English?",
+            'question' : "What other language does Nathan know?",
             'answers' : ['Spanish', 'Pig Latin', 'Mandarin']
         },
         {
