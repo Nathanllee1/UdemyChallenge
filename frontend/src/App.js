@@ -9,30 +9,16 @@ import Slide from 'react-reveal/Slide';
 import Question from './question';
 import Results from './results';
 
-var questionList = [
-    {
-        'question' : "Where does Nathan go to school?",
-        'answers' : ['Cal Poly', 'UC San Diego', 'UC Davis']
-    },
-    {
-        'question' : "What other language does Nathan know other than English?",
-        'answers' : ['Spanish', 'Pig Latin', 'Mandarin']
-    },
-    {
-        'question' : "Does Nathan prefer React or Angular?",
-        'answers' : ['React', 'Angular']
-    },
-]
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      questions : questionList,
+      questions : [],
       questionCount: 0,
       currentScreen : 'Questions',
       answers: [],
-      answerObject: [{1 : 2}, {1 : 1}, {2 : 2}]
+      answerObject: []
     }
 
   }
@@ -40,17 +26,16 @@ class App extends React.Component {
   componentDidMount() {
     fetch("/questions")
       .then((response) => {
-        response.json().then(function(data) {
-          console.log(data)
-        })
+        return response.json()
       })
+      .then(data => this.setState({questions : data}))
       .catch((error) => {
         console.log("Couldn't fetch data")
       })
 
   }
 
-  submitResults = () => {
+  onQuestionSubmit = () => {
     this.setState({currentScreen : 'Results'})
     fetch('/answers', {
       method: 'POST', // or 'PUT'
@@ -59,25 +44,23 @@ class App extends React.Component {
       },
       body: JSON.stringify(this.state.answers),
     })
-    .then((response) => this.setState({answerObject : response.json()}))
+    .then((response) => {
+      return response.json()
+    })
+
     .then((data) => {
-      console.log('Success:', data);
+      this.setState({answerObject : data})
+      console.log('Success:', this.state.answerObject);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
   }
 
-  onQuestionSubmit = (e) => {
-    e.preventDefault()
-    console.log('submittted')
 
-    this.setState({currentScreen : 'Results'})
-
-  }
 
   onQuestionChange = (e) => {
-    
+
 
     var currentQuestions = this.state.answers
 

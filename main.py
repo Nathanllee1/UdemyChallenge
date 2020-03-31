@@ -26,7 +26,7 @@ def questions():
 
     return jsonify(questionList)
 
-@app.route('/answers')
+@app.route('/answers', methods=['POST'])
 def answers():
     enteredAnswers = request.get_json()
     answerKey = [0, 2, 0]
@@ -34,12 +34,12 @@ def answers():
     answerFormat = []
 
     i = 0
-    while i < len(enteredAnswers):
-        if enteredAnswers[i] != answerKey[i]:
-            returned.append({enteredAnswers[i]: {answerKey[i]}})
+
+    while i < len(answerKey):
+        answerFormat.append([answerKey[i], int(enteredAnswers[i])])
         i += 1
 
-    return jsonify(retruned)
+    return jsonify(answerFormat)
 
 
 if __name__ == '__main__':

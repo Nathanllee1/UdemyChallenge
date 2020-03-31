@@ -17,12 +17,12 @@ export default class Question extends React.Component {
     var button;
 
     if (this.props.questionNumber < this.props.lastQuestion - 1) {
-      button = <a class={this.props.isActive ? 'btn btn-primary active' : 'btn btn-primary album'} disabled={this.state.buttonToggle} href={'#q' + (this.props.questionNumber + 1).toString()}>Next</a>
+      button = <a class={this.state.buttonToggle ? 'btn btn-primary disabled' : 'btn btn-primary'} href={'#q' + (this.props.questionNumber + 1).toString()}>Next</a>
     } else {
       button = <input class="btn btn-primary" type="submit" value={'Submit Quiz'} disabled={this.state.buttonToggle}/>
     }
 
-    var buttonText = 'Next'
+
     return (
       <div className="question" id={'q' + this.props.questionNumber.toString()}>
         <div className="questionBox">
