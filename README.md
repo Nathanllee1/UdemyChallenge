@@ -2,7 +2,7 @@
 
 For this challenge, I created a quiz web app. The web app has the user go through several questions and has an evaluation page displaying what the user got right and wrong. 
 
-When the application loads, I have it make a request for the questions and potential answers. After the user submits the quiz, I submit the answers to the backend where it is evaluated and displayed back in the frontend. I structured it this way so that there's no way for the user to get the answers unnless they have questions to submit. This is useful if the quiz is used in a more strict setting and cheating could be an issue. The app can display as many questions as needed and can have as many multiple choice options as needed. 
+When the application loads, I have it make a request for the questions and potential answers. After the user submits the quiz, I submit the answers to the backend where it is evaluated and displayed back in the frontend. I structured it this way so that there's no way for the user to get the answers unnless they have questions to submit. This is useful if the quiz is used in a more strict setting and cheating could be an issue. The app can display as many questions as needed and can have as many multiple choice options as needed. It's also responsive and works for mobile devices.
 
 I focused mostly on the frontend. I had it handle almost all the logic and data flow. The frontend was responsible for displaying all the questions, collecting all the quiz answers, and submitting and displaying results. The only purpose of the backend is to serve the questions and evaluate the submitted answers.
 
