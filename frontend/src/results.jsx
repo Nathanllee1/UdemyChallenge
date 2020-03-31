@@ -15,7 +15,7 @@ export default function Results(props) {
         <h1>You got {correctCount} out of {props.questions.length} questions right</h1><br/>
 
           {props.answerObject.map((answerNum, index) => (
-            <div className='answerBox'>
+            <div className='answerBox' key={index}>
               <h3><b>Question {index}</b>: {props.questions[index].question}</h3>
               {(props.questions[index].answers[answerNum[1]] !== props.questions[index].answers[answerNum[0]]) ?
                 <div className="incorrectAnswer">
@@ -30,7 +30,7 @@ export default function Results(props) {
               <br />
             </div>
           ))}
-      <a type="button" class="btn btn-primary" href="/">Take Quiz Again</a>
+        <a type="button" className="btn btn-primary" href="/">Take Quiz Again</a>
       </div>
     </div>
   );

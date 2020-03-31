@@ -60,18 +60,18 @@ class App extends React.Component {
       return (
         <div className="content">
           <div className="intro">
-            <div class="introBox">
+            <div className="introBox">
               <h1>Welcome Udemy!</h1>
               <h2>Here's a quiz about me, <b>Nathan Lee</b> </h2>
               <p>(Hint: my resume might help)</p><br/>
               <h3>My response to the <a href="https://github.com/udemy/coding-challenge">Udemy Web App Coding Challenge</a></h3>
               <h4>The <a href="https://github.com/Nathanllee1/UdemyChallenge">code and writeup</a></h4> <br/>
-              <a type="button" class="btn btn-primary" href="#q0">Begin Quiz</a>
+              <a type="button" className="btn btn-primary" href="#q0">Begin Quiz</a>
             </div>
           </div>
           <form onSubmit={this.onQuestionSubmit} onChange={this.onQuestionChange}>
             {this.state.questions.map((question, index) => (
-              <Question question={question} questionNumber={index} onSubmit={this.onQuestionSubmit} lastQuestion={this.state.questions.length}/>
+              <Question key={index} question={question} questionNumber={index} onSubmit={this.onQuestionSubmit} lastQuestion={this.state.questions.length}/>
             ))}
           </form>
         </div>

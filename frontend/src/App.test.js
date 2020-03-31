@@ -24,9 +24,33 @@ afterEach(() => {
   container = null;
 });
 
+
+it("Renders question series correctly after fetch", async () => {
+  const fakeQuestions = [{"question" : "Why", "answers" : ['1', '2', '3']}, {"question": "Where", "answers" : ['1', '2', '3']}]
+
+  jest.spyOn(global, "fetch").mockImplementation(() =>
+    Promise.resolve({
+      json: () => Promise.resolve(fakeQuestions)
+    })
+  )
+
+  await act(async () => {
+    render(<App />, container)
+  })
+  expect(container).toMatchSnapshot()
+}),
+
 it("Check results render the right results", () => {
   act(() => {
-    render(<Results answerObject={[1, 1], [0, 1]} questions={[{"question":"?", "answers":["Yes", "No"]}]}/>, container);
+    render(<Results answerObject={[1, 1], [0, 1]} questions={[{"question":"?1", "answers":["Yes", "No"]}, {"question":"?2", "answers":["Perhaps", "Maybe"]}]}/>, container);
+  });
+
+  expect(container).toMatchSnapshot()
+}),
+
+it("Check question object displaying right amount of questions", () => {
+  act(() => {
+    render(<Question question={{"question":"?1", "answers":["Yes", "No"]}} questionNumber={1} />, container)
   });
   expect(container).toMatchSnapshot()
 })

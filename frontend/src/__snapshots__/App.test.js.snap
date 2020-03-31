@@ -1,0 +1,294 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Check question object displaying right amount of questions 1`] = `
+<div>
+  <div
+    class="question"
+    id="q1"
+  >
+    <div
+      class="questionBox"
+    >
+      <h1
+        class="questionTitle"
+      >
+        ?1
+      </h1>
+      <div
+        class="radio"
+      >
+        <label>
+          <input
+            name="1"
+            type="radio"
+            value="0"
+          />
+          Yes
+        </label>
+      </div>
+      <div
+        class="radio"
+      >
+        <label>
+          <input
+            name="1"
+            type="radio"
+            value="1"
+          />
+          No
+        </label>
+      </div>
+      <input
+        class="btn btn-primary"
+        disabled=""
+        type="submit"
+        value="Submit Quiz"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Check results render the right results 1`] = `
+<div>
+  <div
+    class="results"
+  >
+    <div
+      class="resultsBox"
+    >
+      <h1>
+        You got 
+        2
+         out of 
+        2
+         questions right
+      </h1>
+      <br />
+      <div
+        class="answerBox"
+      >
+        <h3>
+          <b>
+            Question 
+            0
+          </b>
+          : 
+          ?1
+        </h3>
+        <div
+          class="correctAnswer"
+        >
+          <h4>
+              
+            <i
+              class="fas fa-check"
+            />
+          </h4>
+        </div>
+        <br />
+      </div>
+      <div
+        class="answerBox"
+      >
+        <h3>
+          <b>
+            Question 
+            1
+          </b>
+          : 
+          ?2
+        </h3>
+        <div
+          class="correctAnswer"
+        >
+          <h4>
+              
+            <i
+              class="fas fa-check"
+            />
+          </h4>
+        </div>
+        <br />
+      </div>
+      <a
+        class="btn btn-primary"
+        href="/"
+        type="button"
+      >
+        Take Quiz Again
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Renders question series correctly after fetch 1`] = `
+<div>
+  <div
+    class="content"
+  >
+    <div
+      class="intro"
+    >
+      <div
+        class="introBox"
+      >
+        <h1>
+          Welcome Udemy!
+        </h1>
+        <h2>
+          Here's a quiz about me, 
+          <b>
+            Nathan Lee
+          </b>
+           
+        </h2>
+        <p>
+          (Hint: my resume might help)
+        </p>
+        <br />
+        <h3>
+          My response to the 
+          <a
+            href="https://github.com/udemy/coding-challenge"
+          >
+            Udemy Web App Coding Challenge
+          </a>
+        </h3>
+        <h4>
+          The 
+          <a
+            href="https://github.com/Nathanllee1/UdemyChallenge"
+          >
+            code and writeup
+          </a>
+        </h4>
+         
+        <br />
+        <a
+          class="btn btn-primary"
+          href="#q0"
+          type="button"
+        >
+          Begin Quiz
+        </a>
+      </div>
+    </div>
+    <form>
+      <div
+        class="question"
+        id="q0"
+      >
+        <div
+          class="questionBox"
+        >
+          <h1
+            class="questionTitle"
+          >
+            Why
+          </h1>
+          <div
+            class="radio"
+          >
+            <label>
+              <input
+                name="0"
+                type="radio"
+                value="0"
+              />
+              1
+            </label>
+          </div>
+          <div
+            class="radio"
+          >
+            <label>
+              <input
+                name="0"
+                type="radio"
+                value="1"
+              />
+              2
+            </label>
+          </div>
+          <div
+            class="radio"
+          >
+            <label>
+              <input
+                name="0"
+                type="radio"
+                value="2"
+              />
+              3
+            </label>
+          </div>
+          <a
+            class="btn btn-primary disabled"
+            href="#q1"
+          >
+            Next
+          </a>
+        </div>
+      </div>
+      <div
+        class="question"
+        id="q1"
+      >
+        <div
+          class="questionBox"
+        >
+          <h1
+            class="questionTitle"
+          >
+            Where
+          </h1>
+          <div
+            class="radio"
+          >
+            <label>
+              <input
+                name="1"
+                type="radio"
+                value="0"
+              />
+              1
+            </label>
+          </div>
+          <div
+            class="radio"
+          >
+            <label>
+              <input
+                name="1"
+                type="radio"
+                value="1"
+              />
+              2
+            </label>
+          </div>
+          <div
+            class="radio"
+          >
+            <label>
+              <input
+                name="1"
+                type="radio"
+                value="2"
+              />
+              3
+            </label>
+          </div>
+          <input
+            class="btn btn-primary"
+            disabled=""
+            type="submit"
+            value="Submit Quiz"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
