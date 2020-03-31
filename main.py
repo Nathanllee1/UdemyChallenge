@@ -16,7 +16,7 @@ def questions():
         },
         {
             'question' : "What other language does Nathan know?",
-            'answers' : ['Spanish', 'Pig Latin', 'Mandarin']
+            'answers' : ['Spanish', 'French', 'Mandarin']
         },
         {
             'question' : "Does Nathan prefer React or Angular?",
@@ -43,4 +43,4 @@ def answers():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

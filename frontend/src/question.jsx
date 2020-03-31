@@ -6,12 +6,12 @@ export default class Question extends React.Component {
     this.state = {
       buttonToggle : true,
       formValue: '',
-    }
-  }
+    };
+  };
 
   onChange = (e) => {
     this.setState({buttonToggle : false})
-  }
+  };
 
   render() {
     var button;
@@ -20,7 +20,7 @@ export default class Question extends React.Component {
       button = <a class={this.state.buttonToggle ? 'btn btn-primary disabled' : 'btn btn-primary'} href={'#q' + (this.props.questionNumber + 1).toString()}>Next</a>
     } else {
       button = <input class="btn btn-primary" type="submit" value={'Submit Quiz'} disabled={this.state.buttonToggle}/>
-    }
+    };
 
 
     return (
@@ -38,6 +38,6 @@ export default class Question extends React.Component {
             {button}
         </div>
       </div>
-    )
-  }
-}
+    );
+  };
+};

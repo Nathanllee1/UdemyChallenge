@@ -1,14 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-//this.setState({questions:response})
-
-import Slide from 'react-reveal/Slide';
-
 
 import Question from './question';
 import Results from './results';
-
 
 class App extends React.Component {
   constructor(props) {
@@ -19,9 +13,8 @@ class App extends React.Component {
       currentScreen : 'Questions',
       answers: [],
       answerObject: []
-    }
-
-  }
+    };
+  };
 
   componentDidMount() {
     fetch("/questions")
@@ -31,12 +24,11 @@ class App extends React.Component {
       .then(data => this.setState({questions : data}))
       .catch((error) => {
         console.log("Couldn't fetch data")
-      })
-
-  }
+      });
+  };
 
   onQuestionSubmit = () => {
-    this.setState({currentScreen : 'Results'})
+    this.setState({currentScreen : 'Results'});
     fetch('/answers', {
       method: 'POST', // or 'PUT'
       headers: {
@@ -47,36 +39,24 @@ class App extends React.Component {
     .then((response) => {
       return response.json()
     })
-
     .then((data) => {
-      this.setState({answerObject : data})
-      console.log('Success:', this.state.answerObject);
+      this.setState({answerObject : data});
     })
     .catch((error) => {
-      console.error('Error:', error);
+      console.log('Could not submit data');
     });
-  }
-
-
+  };
 
   onQuestionChange = (e) => {
+    var currentQuestions = this.state.answers;
 
-
-    var currentQuestions = this.state.answers
-
-    currentQuestions[[e.target.name]] = e.target.value
+    currentQuestions[[e.target.name]] = e.target.value;
 
     this.setState({ answers : currentQuestions });
-    console.log({ [e.target.name]: e.target.value })
-  }
-
-  beginQuiz = (e) => {
-    console.log('beginning quiz')
-
-  }
+  };
 
   render() {
-    if (this.state.currentScreen == 'Questions') {
+    if (this.state.currentScreen === 'Questions') {
       return (
         <div className="content">
           <div className="intro">
@@ -92,22 +72,16 @@ class App extends React.Component {
           <form onSubmit={this.onQuestionSubmit} onChange={this.onQuestionChange}>
             {this.state.questions.map((question, index) => (
               <Question question={question} questionNumber={index} onSubmit={this.onQuestionSubmit} lastQuestion={this.state.questions.length}/>
-
             ))}
           </form>
         </div>
-
-
       );
-    } else if (this.state.currentScreen == 'Results') {
+    } else if (this.state.currentScreen === 'Results') {
       return (
-
         <Results answerObject={this.state.answerObject} questions={this.state.questions}/>
-      )
-    }
-
-  }
-
-}
+      );
+    };
+  };
+};
 
 export default App;
