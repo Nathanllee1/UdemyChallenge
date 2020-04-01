@@ -4,7 +4,7 @@ export default function Results(props) {
   var correctCount = 0;
 
   for (var i=0; i < props.answerObject.length; i++) {
-    if (props.answerObject[i][0] === props.answerObject[i][1]) {
+    if (props.answerObject[i][0] === parseInt(props.answerObject[i][1])) {
       correctCount += 1;
     };
   };
