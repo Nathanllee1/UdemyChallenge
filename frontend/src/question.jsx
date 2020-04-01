@@ -20,7 +20,7 @@ export default class Question extends React.Component {
       button = <a className={this.state.buttonToggle ? 'btn btn-primary disabled' : 'btn btn-primary'} href={'#q' + (this.props.questionNumber + 1).toString()}>Next</a>
     } else {
 
-      button = <input className="btn btn-primary" type="submit" value={'Submit Quiz'} disabled={!this.props.allEntered}/>
+      button = <input className="btn btn-primary" type="submit" value={'Submit Quiz'} disabled={this.state.buttonToggle}/>
     };
 
     return (

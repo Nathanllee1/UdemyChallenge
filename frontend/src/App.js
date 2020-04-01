@@ -13,7 +13,6 @@ class App extends React.Component {
       currentScreen : 'Questions',
       answers: [],
       answerObject: [],
-      allEntered: false
     };
   };
 
@@ -55,20 +54,6 @@ class App extends React.Component {
 
     this.setState({ answers : currentQuestions });
 
-    var undef;
-
-    if (this.state.answer.length === this.state.questions.length) {
-      for (var i=0; i<this.state.answer.length; i++) {
-        if (this.state.answer[i] === 'undefined') {
-          undef = true
-        }
-      }
-    }
-
-    if (undef != true) {
-      this.setState({allEntered : true})
-    }
-
 
   };
 
@@ -88,7 +73,7 @@ class App extends React.Component {
           </div>
           <form onSubmit={this.onQuestionSubmit} onChange={this.onQuestionChange}>
             {this.state.questions.map((question, index) => (
-              <Question key={index} question={question} questionNumber={index} onSubmit={this.onQuestionSubmit} lastQuestion={this.state.questions.length} allEntered={this.state.allEntered}/>
+              <Question key={index} question={question} questionNumber={index} onSubmit={this.onQuestionSubmit} lastQuestion={this.state.questions.length} />
             ))}
           </form>
         </div>

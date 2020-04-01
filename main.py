@@ -1,9 +1,5 @@
 from flask import Flask, render_template, jsonify, request
 import json
-from google.cloud import datastore
-
-datastore_client = datastore.Client()
-
 
 app = Flask(__name__, static_folder="build/static", template_folder="build")
 
