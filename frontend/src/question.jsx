@@ -19,14 +19,9 @@ export default class Question extends React.Component {
     if (this.props.questionNumber < this.props.lastQuestion - 1) {
       button = <a className={this.state.buttonToggle ? 'btn btn-primary disabled' : 'btn btn-primary'} href={'#q' + (this.props.questionNumber + 1).toString()}>Next</a>
     } else {
-<<<<<<< HEAD
-      button = <input className="btn btn-primary" type="submit" value={'Submit Quiz'} disabled={this.state.buttonToggle}/>
-    };
-=======
-      button = <input class="btn btn-primary" type="submit" value={'Submit Quiz'} disabled={this.state.buttonToggle}/>
-    };
 
->>>>>>> 10c555c3664b888935a08d127041699b3578e3e9
+      button = <input className="btn btn-primary" type="submit" value={'Submit Quiz'} disabled={!this.props.allEntered}/>
+    };
 
     return (
       <div className="question" id={'q' + this.props.questionNumber.toString()} key={this.props.questionNumber}>

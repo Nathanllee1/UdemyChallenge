@@ -25,14 +25,6 @@ p {
     display: flex;
     align-items: center;
     height: 100vh;
-=======
-.intro {
-  display: flex;
-  align-items: center;
-  height: 100vh;
-  padding: 20px;
->>>>>>> 10c555c3664b888935a08d127041699b3578e3e9
-
   }
 
   .introBox {

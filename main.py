@@ -1,5 +1,10 @@
 from flask import Flask, render_template, jsonify, request
 import json
+from google.cloud import datastore
+
+datastore_client = datastore.Client()
+
+
 app = Flask(__name__, static_folder="build/static", template_folder="build")
 
 @app.route('/')
@@ -9,7 +14,7 @@ def index():
 
 @app.route('/questions')
 def questions():
-    questionList = [
+    question = [
         {
             'question' : "Where does Nathan go to school?",
             'answers' : ['Cal Poly', 'UC San Diego', 'UC Davis']
@@ -24,19 +29,20 @@ def questions():
         },
     ]
 
-    return jsonify(questionList)
+
+    return jsonify(question)
 
 @app.route('/answers', methods=['POST'])
 def answers():
     enteredAnswers = request.get_json()
-    answerKey = [0, 2, 0]
-
+    answerKey = answer = [0, 2, 0]
     answerFormat = []
 
     i = 0
 
     while i < len(answerKey):
-        answerFormat.append([answerKey[i], int(enteredAnswers[i])])
+
+        answerFormat.append([answerKey[i], enteredAnswers[i]])
         i += 1
 
     return jsonify(answerFormat)
